@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder} from '@angular/forms'
-import { stringify } from '@angular/compiler/src/util';
+import {FormBuilder} from '@angular/forms';
 import {AngularFireAuth} from '@angular/fire/auth';
 @Component({
   selector: 'app-login',

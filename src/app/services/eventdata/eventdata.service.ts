@@ -7,14 +7,14 @@ import {HttpClient} from '@angular/common/http';
 })
 export class EventdataService {
 
-  constructor() { }
+  constructor(private http : HttpClient) { }
 
   getEvents(category?: string): Observable<any> {
-    return of('test');
+    return this.http.get('/api/events/test');
   }
 
   getEvent(key: string): Observable<any> {
-    return of('test');
+    return this.http.get('/api/events/test');
   }
 
 
