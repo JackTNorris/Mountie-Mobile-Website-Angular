@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import {ReactiveFormsModule} from '@angular/forms'
 import {AngularFireModule} from '@angular/fire';
 import {HttpClientModule} from '@angular/common/http';
+import {CookieService} from 'ngx-cookie-service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     ReactiveFormsModule,
     AngularFireModule,
-    HttpClientModule
+    HttpClientModule,
+    CookieService
   ],
   providers: [],
   bootstrap: [AppComponent]

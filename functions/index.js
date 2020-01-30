@@ -26,7 +26,8 @@ app.get('/api/events/:category/:eventKey', async (req, res) => {
   res.send(event);
 });
 
-app.post('/api/events/:category', async (req, res) => { 
+
+app.post('/api/actions/addEvent', async (req, res) => { 
   try {
     await db.ref(`/events/${req.params.category}`).push({
       name: req.body.eventName.toString(),
@@ -45,18 +46,18 @@ app.post('/api/events/:category', async (req, res) => {
   res.end();
 });
 
-app.put('/api/events/:category/:eventKey', async (req, res) => {
+app.put('/api/actions/editEvent', async (req, res) => {
   try {
-    await db.ref(`/events/${req.params.category}/${req.params.eventKey}`).update({
-      name: req.body.name.toString(),
-      category: req.body.category.toString(),
-      activity: req.body.activity.toString(),
-      date: req.body.date.toString() + timeString,
-      location: req.body.location.toString(),
-      //time: req.body.eventTime.toString(),
-      isSpecial: (req.body.isSpecial) ? true : false,
-      description: req.body.description.toString(),
-      updatedOn: today.toDateString()
+    db.ref('/events/' + req.body.ogCategory + '/' + req.body.key).remove();
+    updateRef.push().set({
+        name: req.body.name.toString(),
+        category: req.body.category.toString(),
+        activity: req.body.activity.toString(),
+        date: req.body.date.toString() + timeString,
+        location: req.body.location.toString(),
+        isSpecial: (req.body.isSpecial) ? true : false,
+        description: req.body.description.toString(),
+        updatedOn: today.toDateString()
     });
   }
   catch(error) {
