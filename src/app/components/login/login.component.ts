@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit()
   {
-    this.auth.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value);
+    this.auth.loginWithEmailAndPassword(this.loginForm.controls.username.value, this.loginForm.controls.password.value);
   }
 
 }

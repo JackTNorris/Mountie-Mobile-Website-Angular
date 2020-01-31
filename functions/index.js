@@ -26,8 +26,18 @@ app.get('/api/events/:category/:eventKey', async (req, res) => {
   res.send(event);
 });
 
+app.delete('/api/actions/deleteEvent/:category/:eventKey/:token', async (req, res) => {
+  try {
+    await db.ref(`/events/${req.params.category}/${req.params.eventKey}`).remove();
+  }
+  catch(error)
+  {
 
-app.post('/api/actions/addEvent', async (req, res) => { 
+  }
+})
+
+
+app.post('/api/actions/addEvent/:token', async (req, res) => { 
   try {
     await db.ref(`/events/${req.params.category}`).push({
       name: req.body.eventName.toString(),
@@ -46,7 +56,7 @@ app.post('/api/actions/addEvent', async (req, res) => {
   res.end();
 });
 
-app.put('/api/actions/editEvent', async (req, res) => {
+app.put('/api/actions/editEvent/:key', async (req, res) => {
   try {
     db.ref('/events/' + req.body.ogCategory + '/' + req.body.key).remove();
     updateRef.push().set({
