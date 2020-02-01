@@ -26,7 +26,7 @@ app.get('/api/events/:category/:eventKey', async (req, res) => {
   res.send(event);
 });
 
-app.delete('/api/actions/deleteEvent/:category/:eventKey/:token', async (req, res) => {
+app.delete('/api/actions/deleteEvent/:category/:eventKey', async (req, res) => {
   try {
     await db.ref(`/events/${req.params.category}/${req.params.eventKey}`).remove();
   }
@@ -78,6 +78,15 @@ app.put('/api/actions/editEvent/:key', async (req, res) => {
 app.get('/api/test', (req, res) => {
   res.send({test: 'this is some test data'});
 })
+
+app.post('/auth/login', (req, resp) => {
+  
+})
+
+app.get('/auth/authState', (req, res) => {
+  //res.cookie("__sesssion")
+})
+
 app.get('/**', (req, res) => {
   res.send('404 Page');
 })
