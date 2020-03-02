@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import { EventResolverService } from './services/resolver/event-resolver.service';
+import { LoginComponent } from './components/login/component/login.component';
+//import { EventResolver } from './services/resolver/event-resolver.service';
+
 
 const routes: Routes = [
-  {path: 'events', component: HomeComponent, resolve: EventResolverService },
-  {path: 'login', component: LoginComponent} 
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: 'events', component: HomeComponent, },
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

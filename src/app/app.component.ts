@@ -6,11 +6,13 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'Mountie-Mobile-Website-Angular';
   data = 'stuff';
   constructor(private http: HttpClient)
-  {}
+  {
+  }
   onPressButton()
   {
     this.http.get('/api/test').subscribe((data : any) => {

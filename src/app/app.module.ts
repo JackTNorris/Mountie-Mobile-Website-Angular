@@ -4,11 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import {ReactiveFormsModule} from '@angular/forms'
+import { LoginComponent } from './components/login/component/login.component';
+import {ReactiveFormsModule} from '@angular/forms';
 import {AngularFireModule} from '@angular/fire';
 import {HttpClientModule} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
+import { environment } from '../environments/environment';
+import { AngularFireAuth } from '@angular/fire/auth';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,11 +22,10 @@ import {CookieService} from 'ngx-cookie-service';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    AngularFireModule,
+    AngularFireModule.initializeApp(environment.firebase),
     HttpClientModule,
-    CookieService
   ],
-  providers: [],
+  providers: [CookieService, AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

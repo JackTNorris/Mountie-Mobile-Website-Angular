@@ -1,0 +1,19 @@
+<head>
+    <title>Mountie Mobile | Login</title>
+</head>
+<body>
+    <div id="loginBox">
+        <form  [formGroup] = "loginForm">
+            <input type="email" formControlName = "username" id="user" placeholder="Username" />
+            <br>
+            <input type="password" formControlName="password" id="pwd" placeholder="Password" />
+            <input type="hidden" name="authToken" id="authToken" value="" />
+        </form>
+
+    </div>
+    <div id='loginButton'>
+        <button id="loginButton" (click)="signIn()">Login</button>
+    </div>
+    <p id="errorBox" >{{errorMessage}}</p>
+</body>
+
