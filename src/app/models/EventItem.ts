@@ -3,5 +3,4 @@ export default interface EventItem {
   category: string;
   activity: string;
   date: string;
-  
 }

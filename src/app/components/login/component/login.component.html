@@ -14,6 +14,9 @@
     <div id='loginButton'>
         <button id="loginButton" (click)="signIn()">Login</button>
     </div>
+    <p  id = "errorBox" *ngIf = "loginForm.get('username').dirty && loginForm.get('username').invalid">
+        Enter in a valid email dude
+    </p>
     <p id="errorBox" >{{errorMessage}}</p>
 </body>
 

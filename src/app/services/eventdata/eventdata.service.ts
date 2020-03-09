@@ -9,12 +9,16 @@ export class EventdataService {
 
   constructor(private http : HttpClient) { }
 
-  getEvents(category?: string): Observable<any> {
-    return this.http.get<any>('/api/events/test');
+  getEvents(category?: string): Observable<EventItem[]> {
+    return this.http.get<any>(`api/events/${category}`);
   }
 
-  getEvent(key: string): Observable<EventItem> {
-    return this.http.get<EventItem>('/api/events/test');
+  getEvent(category: string, key: string): Observable<EventItem> {
+    return this.http.get<EventItem>(`api/events/${category}/${key}`);
+  }
+
+  deleteEvent(category: string, key: string): Observable<any> {
+    return this.http.delete<any>('/dd');
   }
 
 

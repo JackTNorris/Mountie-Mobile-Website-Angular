@@ -10,13 +10,15 @@ import {AngularFireModule} from '@angular/fire';
 import {HttpClientModule} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import { environment } from '../environments/environment';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
+import { AddEventComponent } from './components/add-event/add-event.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    AddEventComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +26,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     HttpClientModule,
+    AngularFireAuthModule
   ],
   providers: [CookieService, AngularFireAuth],
   bootstrap: [AppComponent]

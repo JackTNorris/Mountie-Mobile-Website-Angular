@@ -19,13 +19,33 @@ app.get('/api/events/:category/:eventKey', async (req, res) => {
     await db.ref(`/events/${req.params.category}/${req.params.eventKey}`).once('value', (data) => {
       event = data.val();
     });
+    res.send(event);
   }
   catch(error)
   {
     console.log(error.message);
+    res.send("400: Bad Request").status(400);
   }
-  res.send(event);
 });
+
+app.get('/api/events/:category', async (req, res) => {
+  let events = [];
+  try {
+    await db.ref(`/events/${req.params.category}`).once('value', (data) => {
+      //res.send(data.val());
+      data.forEach((event) => {
+        events.push(event.val());
+      })
+      
+    });
+    res.send(events);
+  }
+  catch(error)
+  {
+    console.log(error.message);
+    res.send("400: Bad Request").status(400);
+  }
+})
 
 app.delete('/api/actions/deleteEvent/:category/:eventKey', async (req, res) => {
   try {
@@ -80,21 +100,24 @@ app.get('/api/test', (req, res) => {
   res.send({test: 'this is some test data'});
 })
 
-app.get('/**', (req, res) => {
-  res.send('404 Page');
-})
-
 app.post('/isAuthenticated', async (req, res) => {
   let cookie = req.body.authKey;
   try{
     await admin.auth().verifyIdToken(cookie);
-    return true;
+    console.log("USER IS AUTHENTICATED");
+    res.send(true).status(200);
   }
   catch(error) {
-    return false;
+    console.log(error.message);
+    res.send(false);
   }
 })
 
+app.post('/isAdmin', async(req, res) => {
+
+})
+
+//helpers
 
 
 exports.app = functions.https.onRequest(app);
