@@ -104,7 +104,7 @@ app.post('/isAuthenticated', async (req, res) => {
   let cookie = req.body.authKey;
   try{
     await admin.auth().verifyIdToken(cookie);
-    console.log("USER IS AUTHENTICATED");
+    console.log("USER IS AUTHENTICATED OR SOMETHING");
     res.send(true).status(200);
   }
   catch(error) {
@@ -113,8 +113,19 @@ app.post('/isAuthenticated', async (req, res) => {
   }
 })
 
+app.post('/login', async (req, res) => {
+  
+})
 app.post('/isAdmin', async(req, res) => {
-
+  let cookie = req.body.authKey;
+  admin.auth().verifyIdToken(cookie).then((decodedToken) => {
+    res.send(true);
+    return console.log("The token has been decoded");
+  }).catch((error) => {
+    console.log(error.message);
+    console.log("Something bad happened");
+    res.send(false);
+  })
 })
 
 //helpers

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from './components/home/home.component';
+import {HomeComponent} from './components/home/component/home.component';
 import { LoginComponent } from './components/login/component/login.component';
 import { AuthGuard } from './guards/auth/auth.guard';
 //import { EventResolver } from './services/resolver/event-resolver.service';
@@ -8,7 +8,7 @@ import { AuthGuard } from './guards/auth/auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
-  {path: 'events', component: HomeComponent, canActivate: [AuthGuard] },
+  {path: 'events', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent}
 ];
 

@@ -16,13 +16,12 @@ export class AuthService {
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then(async (idToken) => {
       let expirationDate = new Date(Date.now());
       expirationDate.setHours(expirationDate.getHours() + 2);
-      this.cookie.set('__session', await idToken.user.getIdToken(), expirationDate);
+      this.cookie.set('__session', await this.afAuth.auth.currentUser.getIdToken(), expirationDate, null, null, true);
       this.route.navigate(['events']);
     }).catch((error) => {
       console.log(error);
       invalidFunction();
     });
-
   }
 
 }
