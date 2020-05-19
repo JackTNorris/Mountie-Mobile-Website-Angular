@@ -6,12 +6,13 @@ import {environment} from '../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class EventdataService {
+export class EventsService {
 
   constructor(private http: HttpClient) { }
 
   getEvents(category?: string): Observable<EventItem[]> {
     return this.http.get<any>(`${environment.apiUrl}/api/events/${category}`);
+    console.log(`${environment.apiUrl}/api/events/${category}`);
   }
 
   getEvent(category: string, key: string): Observable<EventItem> {
@@ -21,6 +22,5 @@ export class EventdataService {
   deleteEvent(category: string, key: string): Observable<any> {
     return this.http.delete<any>(`${environment.apiUrl}/api/actions/deleteEvent/${category}/${key}`);
   }
-
-
+  
 }

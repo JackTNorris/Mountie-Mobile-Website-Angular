@@ -13,7 +13,9 @@ export const environment = {
     messagingSenderId: "644756984630",
     appId: "1:644756984630:web:ddfa6c4a6a2c60bb1fd997",
     measurementId: "G-712KQG2262"
-  }};
+  },
+  apiUrl: 'https://mountiemobileangularapi.firebaseapp.com'
+};
 
 /*
  * For easier debugging in development mode, you can import the following file

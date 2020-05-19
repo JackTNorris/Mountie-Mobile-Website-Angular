@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import {FormBuilder} from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
 import {FormGroup, FormControl} from '@angular/forms';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {AuthService} from '../../../services/auth/auth.service';
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   errorMessage: string;
   constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
     this.loginForm = fb.group({
-      username: '',
+      username: ['', Validators.email],
       password: ''
     });
     this.errorMessage = '';
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   signIn() {
     this.auth.loginWithEmailAndPassword(this.loginForm.controls.username.value,
                                         this.loginForm.controls.password.value,
-                                        this.displayLoginError);
+                                        this.displayLoginError.bind(this));
   }
 
   displayLoginError() {
