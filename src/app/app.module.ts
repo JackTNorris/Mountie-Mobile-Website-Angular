@@ -10,15 +10,17 @@ import {HttpClientModule} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import { environment } from '../environments/environment';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
-import { AddEventComponent } from './components/add-event/component/add-event.component';
-import { EventsComponent } from './components/events/events.component';
-
+import { AddEventComponent } from './components/add-event/add-event.component';
+import { EventsComponent } from './components/events/container/events.component';
+import { EventListComponent } from './components/events/event-list/event-list.component';
+import { TableModule } from 'primeng/table';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     AddEventComponent,
-    EventsComponent
+    EventsComponent,
+    EventListComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { EventsComponent } from './components/events/events.component';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     HttpClientModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    TableModule
   ],
   providers: [CookieService, AngularFireAuth],
   bootstrap: [AppComponent]

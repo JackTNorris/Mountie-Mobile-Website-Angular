@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Mountie-Mobile-Website-Angular"
+    }
+  },
+  "defaultProject": "Mountie-Mobile-Website-Angular",
+  "cli": {
+    "analytics": "bb03c7bf-d9dc-4cc3-803d-18cb7366412b"
+  }
 }
