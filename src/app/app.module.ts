@@ -13,7 +13,6 @@ import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 import { AddEventComponent } from './components/add-event/add-event.component';
 import { EventsComponent } from './components/events/container/events.component';
 import { EventListComponent } from './components/events/event-list/event-list.component';
-import { TableModule } from 'primeng/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +28,6 @@ import { TableModule } from 'primeng/table';
     AngularFireModule.initializeApp(environment.firebase),
     HttpClientModule,
     AngularFireAuthModule,
-    TableModule
   ],
   providers: [CookieService, AngularFireAuth],
   bootstrap: [AppComponent]
