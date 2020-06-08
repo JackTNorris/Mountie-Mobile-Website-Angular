@@ -1,22 +1,21 @@
-<head>
-    <title>Mountie Mobile | Login</title>
-</head>
-<body>
-    <div id="loginBox">
-        <form  [formGroup] = "loginForm">
-            <input type="email" formControlName = "username" id="user" placeholder="Username" />
-            <br>
-            <input type="password" formControlName="password" id="pwd" placeholder="Password" />
-            <input type="hidden" name="authToken" id="authToken" value="" />
-        </form>
+<div class="container-fluid h-100">
+    <div class="row h-100 align-items-center">
+        
+        <div class="container text-center">
+            
+            <form [formGroup] = "loginForm" class="form-signin">
+                <img class="mb-4" src="../../../../assets/images/brand.jpg" alt="" width="100" height="100">
+                <h1 class="h3 mb-3 font-weight-normal">Sign In</h1>
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input type="email" id="inputEmail" formControlName="username" class="form-control" placeholder="Email address" required autofocus>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" formControlName="password" class="form-control" placeholder="Password" required>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="signIn()">Sign in</button>
+                <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
+            </form>
+              <p id="errorBox" >{{errorMessage}}</p>
+        </div>
+    </div>
+</div>
 
-    </div>
-    <div id='loginButton'>
-        <button id="loginButton" (click)="signIn()">Login</button>
-    </div>
-    <p  id = "errorBox" *ngIf = "loginForm.get('username').dirty && loginForm.get('username').invalid">
-        Enter in a valid email dude
-    </p>
-    <p id="errorBox" >{{errorMessage}}</p>
-</body>
 

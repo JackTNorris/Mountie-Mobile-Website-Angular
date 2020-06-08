@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { EventsService } from 'src/app/services/events/events.service';
 import EventItem from 'src/assets/models/EventItem';
 
 @Component({
@@ -12,7 +11,7 @@ export class EventListComponent implements OnInit {
   @Input() events: EventItem[];
   @Input() category: string;
 
-  constructor(private eventsService: EventsService) { }
+  constructor() { }
 
   ngOnInit(): void {
 

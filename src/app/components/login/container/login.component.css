@@ -1,63 +1,30 @@
 
-
-#loginBox {
-  border-radius: 25px;
-  background-image: linear-gradient(blue, lightblue);
-  width: 400px;
-  height: 130px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
   margin: auto;
 }
-
-#loginButton {
-  margin-top: 10px;
-  text-align: center;
+.form-signin .checkbox {
+  font-weight: 400;
 }
-
-#errorBox {
-  color: red;
-  text-align: center;
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
 }
-
-#user {
-  text-align: center;
-  border-radius: 10px;
-  transition: ease-in-out .5s width;
-  width: 200px;
-  height: 27px;
-  margin-bottom: 8px;
+.form-signin .form-control:focus {
+  z-index: 2;
 }
-
-#user:hover {
-  width: 250px;
-  border-color: blue;
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
-
-#pwd:hover {
-  width: 250px;
-  border-color: blue;
-}
-
-#pwd {
-  text-align: center;
-  padding: 0;
-  border-radius: 10px;
-  transition: ease-in-out .5s width;
-  width: 200px;
-  height: 27px;
-}
-
-#logNButton {
-  border-radius: 10px;
-  width: 100px;
-  transition: ease-in-out .5s;
-  background-color: white;
-}
-
-#logNButton:hover {
-  width: 150px;
-  background-color: blue;
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }

@@ -5,7 +5,6 @@ import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-
 @Injectable({
   providedIn: 'root'
 })

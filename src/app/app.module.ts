@@ -13,13 +13,15 @@ import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 import { AddEventComponent } from './components/add-event/add-event.component';
 import { EventsComponent } from './components/events/container/events.component';
 import { EventListComponent } from './components/events/event-list/event-list.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     AddEventComponent,
     EventsComponent,
-    EventListComponent
+    EventListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
