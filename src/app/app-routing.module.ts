@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/container/login.component';
 import { AuthGuard } from './guards/auth/auth.guard';
-import { EventsComponent } from './components/events/events.component';
+import { EventsComponent } from './components/events/container/events.component';
 //import { EventResolver } from './services/resolver/event-resolver.service';
 
 
