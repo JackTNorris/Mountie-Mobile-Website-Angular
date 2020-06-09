@@ -10,10 +10,12 @@ import {HttpClientModule} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import { environment } from '../environments/environment';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
-import { AddEventComponent } from './components/add-event/add-event.component';
+import { AddEventComponent } from './components/events/add-event/add-event.component';
 import { EventsComponent } from './components/events/container/events.component';
 import { EventListComponent } from './components/events/event-list/event-list.component';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { QueueComponent } from './components/queue/queue.component';
+import { AnnouncementsComponent } from './components/announcements/announcements.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,9 @@ import { HeaderComponent } from './shared/components/header/header.component';
     AddEventComponent,
     EventsComponent,
     EventListComponent,
-    HeaderComponent
+    HeaderComponent,
+    QueueComponent,
+    AnnouncementsComponent
   ],
   imports: [
     BrowserModule,
