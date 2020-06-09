@@ -5,17 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/container/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {AngularFireModule} from '@angular/fire';
 import {HttpClientModule} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import { environment } from '../environments/environment';
-import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 import { AddEventComponent } from './components/events/add-event/add-event.component';
 import { EventsComponent } from './components/events/container/events.component';
 import { EventListComponent } from './components/events/event-list/event-list.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { QueueComponent } from './components/queue/queue.component';
 import { AnnouncementsComponent } from './components/announcements/announcements.component';
+import {AngularFireModule} from '@angular/fire';
+import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuthGuardModule, AngularFireAuthGuard} from '@angular/fire/auth-guard';
+import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,8 +36,10 @@ import { AnnouncementsComponent } from './components/announcements/announcements
     AngularFireModule.initializeApp(environment.firebase),
     HttpClientModule,
     AngularFireAuthModule,
+    AngularFireAuthGuardModule,
+    AngularFireDatabaseModule
   ],
-  providers: [CookieService, AngularFireAuth],
+  providers: [CookieService, AngularFireAuth, AngularFireAuthGuard, AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,27 +10,24 @@ import { AngularFireAuth } from '@angular/fire/auth';
   providedIn: 'root',
 })
 export class AuthService {
-  loggedIn = false;
-  isAdmin = false;
 
-  constructor(private http: HttpClient, private cookie: CookieService, private route: Router, private afAuth: AngularFireAuth) {
-    this.afAuth.auth.onAuthStateChanged(user => {
-      if (user) {
-        this.loggedIn = true;
-      } else {
-        this.loggedIn = false;
-      }
-    });
-  }
+  idToken: string;
+  constructor(private http: HttpClient, private cookie: CookieService, private route: Router, private afAuth: AngularFireAuth) {}
 
-   loginWithEmailAndPassword(email: string, password: string, invalidFunction: () => void ): {
-    this.afAuth.auth.signInWithEmailAndPassword(email, password).then(async (idToken) => {
+  loginWithEmailAndPassword(email: string, password: string, invalidFunction: () => void ) {
+    this.afAuth.signInWithEmailAndPassword(email, password).then(async (idToken) => {
       this.route.navigate(['events']);
     }).catch((error) => {
       console.log(error);
       invalidFunction();
     });
   }
+
+  getIDToken(): Observable<string> {
+    return this.afAuth.idToken;
+  }
+
+
 
 
 }
