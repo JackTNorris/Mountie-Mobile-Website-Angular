@@ -8,10 +8,31 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" [routerLink]="['/events']">Events</a>
-        <a class="nav-item nav-link" [routerLink]="['/announcements']">Announcements</a>
-        <a class="nav-item nav-link" href="#">Queue</a>
-      </div>
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Events
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" [routerLink]="['/events']">List</a>
+            <a class="dropdown-item" [routerLink]="['/addEvent']">Add Event</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Announcements
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" [routerLink]="['/announcements']">List</a>
+            <a class="dropdown-item" [routerLink]="['/addAnnouncement']" *ngIf="isAdmin$ | async">Add Announcement</a>
+          </div>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin$ | async"> 
+          <a class="nav-link" [routerLink]="['/queue']">Queue</a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin$ | async">
+          <a class="nav-link" [routerLink]="['/users']">Users</a>
+        </li>
+      </ul>
     </div>
 </nav>

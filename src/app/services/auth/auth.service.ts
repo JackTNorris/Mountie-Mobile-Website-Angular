@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +27,11 @@ export class AuthService {
   getIDToken(): Observable<string> {
     return this.afAuth.idToken;
   }
+
+  verifyAdmin(): Observable<boolean> {
+    return this.afAuth.idTokenResult.pipe(map(token => !!token.claims.admin));
+  }
+
 
 
 

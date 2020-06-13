@@ -52,4 +52,11 @@ export class EventsService {
     .catch(error => console.log(error.message));
   }
 
+  addEventToQueue(newEvent: EventItem): void {
+    this.afDatabase.database.ref(`/queue/events/${newEvent.category}`).push(newEvent)
+    .then(() => console.log('Event added'))
+    .catch(error => console.log(error.message));
+  }
+
+
 }

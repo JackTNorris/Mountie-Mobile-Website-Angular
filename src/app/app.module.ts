@@ -13,11 +13,13 @@ import { EventsComponent } from './components/events/container/events.component'
 import { EventListComponent } from './components/events/event-list/event-list.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { QueueComponent } from './components/queue/queue.component';
-import { AnnouncementsComponent } from './components/announcements/announcements.component';
+import { AnnouncementsComponent } from './components/announcements/container/announcements.component';
 import {AngularFireModule} from '@angular/fire';
 import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireAuthGuardModule, AngularFireAuthGuard} from '@angular/fire/auth-guard';
 import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database';
+import { AddAnnouncementComponent } from './components/announcements/add-announcement/add-announcement.component';
+import { UsersComponent } from './components/users/users/users.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/da
     EventListComponent,
     HeaderComponent,
     QueueComponent,
-    AnnouncementsComponent
+    AnnouncementsComponent,
+    AddAnnouncementComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
