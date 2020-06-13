@@ -1,6 +1,15 @@
 {
-    "Arts": [],
-    "Athletics": [],
+    "Arts": [
+        "Orchestra",
+        "Choir",
+        "Band",
+        "Theatre"
+    ],
+    "Athletics": [
+        "Golf",
+        "Football",
+        "Basketball"
+    ],
     "Miscellaneous": [],
     "Academics": []
 }

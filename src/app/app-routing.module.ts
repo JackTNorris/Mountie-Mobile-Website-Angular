@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './components/login/container/login.component';
-import { EventsComponent } from './components/events/container/events.component';
+import { LoginComponent } from './features/login/container/login.component';
+import { EventsComponent } from './features/events/container/events.component';
 import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
-import { AddEventComponent } from './components/events/add-event/add-event.component';
-import { QueueComponent } from './components/queue/queue.component';
-import { AnnouncementsComponent } from './components/announcements/container/announcements.component';
-import { AddAnnouncementComponent } from './components/announcements/add-announcement/add-announcement.component';
+import { AddEventComponent } from './features/events/add-event/add-event.component';
+import { QueueComponent } from './features/queue/queue.component';
+import { AnnouncementsComponent } from './features/announcements/container/announcements.component';
+import { AddAnnouncementComponent } from './features/announcements/add-announcement/add-announcement.component';
 
 
 const routes: Routes = [

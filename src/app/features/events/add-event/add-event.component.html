@@ -1,0 +1,66 @@
+<div class="container h-100 pt-5" >
+    <form [formGroup]="addEventForm">
+        <div class="form-group">
+            <label for="event name">Event Name</label>
+            <input type="text" formControlName="name"
+            [ngClass]="{'is-invalid': addEventForm.controls['name'].invalid && !addEventForm.pristine && addEventForm.controls['name'].touched , 'form-control': true}"
+            id="exampleFormControlInput1"  [maxLength]="30"/>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col">
+                    <label for="category">Category</label>
+                    <select 
+                     [ngClass]="{'is-invalid': addEventForm.controls['category'].invalid && !addEventForm.pristine && addEventForm.controls['category'].touched , 'form-control': true}"
+                     id="exampleFormControlSelect1" 
+                     formControlName="category" 
+                     (change)="setActivity($event.target.value)"
+                     >
+                        <option *ngFor="let cat of categories" [value]="cat" >{{cat}}</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="activity">Activity</label>
+                    <select             
+                        [ngClass]="{'is-invalid': addEventForm.controls['activity'].invalid && !addEventForm.pristine && addEventForm.controls['activity'].touched , 'form-control': true}"                    
+                        formControlName="activity"    
+                    >
+                        <option *ngFor="let act of activitiesFromCategory" [value]="act">{{act}}</option>
+                    </select>
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="example-datetime-local-input">Date and time</label>
+                    <input class="form-control" formControlName="date"
+                    [ngClass]="{'is-invalid': addEventForm.controls['date'].invalid && !addEventForm.pristine && addEventForm.controls['date'].touched , 'form-control': true}"
+                    type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input" />
+                </div>
+                <div class="col">
+                    <label for="location">Location</label>
+                    <input type="text" class="form-control" formControlName="location" [maxLength]="30"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" rows="3" [maxLength]="150"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="link">Link</label>
+            <input type="url" class="form-control" formControlName="link" />
+        </div>
+        <div class="form-check mb-5">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+            Special Event? (these events will have a special gradient in app)
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+    </form>
+</div>
